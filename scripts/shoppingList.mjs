@@ -54,7 +54,7 @@ function addComment() {
 function saveList(){
     const items = [];
     cList.querySelectorAll('li').forEach(item =>{
-        items.push(items.textContent);
+        items.push(item.textContent);
     });
     localStorage.setItem('shoppingList', JSON.stringify(items));
 

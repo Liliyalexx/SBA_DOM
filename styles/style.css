@@ -7,6 +7,11 @@
   --main-bg: #4a4e4d;
   --top-menu-bg: #8ba70e;
   --sub-menu-bg: #3da4ab;
+  --button-bg: #3a7bd5;
+  --button-bg-hover: #2874a6;
+  --button-border: #09507c;
+  --button-border-hover: #083b5b;
+  --button-text: #ffffff;
 }
 
 /* body {
@@ -66,14 +71,20 @@ td {
 
 button {
   font-size: 20px;
-  padding: 5px 10px;
-  border: 1px solid black;
+  padding: 10px 20px;
+  margin: 10px;
+  border: 2px solid var(--button-border);
   border-radius: 5px;
+  background: var(--button-bg);
+  color: var(--button-text);
   cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 button:hover {
-  border-color: #09507c;
-  background-color: #deedf2;
+  border-color: var(--button-border-hover);
+  background-color: var(--button-bg-hover);
+  transform: translateY(-2px);
 }
 
 input {
