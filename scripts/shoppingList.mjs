@@ -34,6 +34,9 @@ const cInput = document.getElementById("commentInput");
 const cBtn = document.getElementById("addCommentBtn");
 const saveBtn = document.getElementById("saveListBtn");
 const loadBtn = document.getElementById("loadListBtn");
+const emailForm = document.getElementById("emailForm");
+const emailInput = document.getElementById("emailInput");
+const emailError = document.getElementById("emailError");
 
 
 
@@ -53,11 +56,12 @@ function addComment() {
 
 function saveList(){
     const items = [];
-    cList.querySelectorAll('li').forEach(item =>{
+    cList.querySelectorAll('#commentList li').forEach(item =>{
         items.push(item.textContent);
     });
     localStorage.setItem('shoppingList', JSON.stringify(items));
-
+       alert("Your list is saved!");
+       window.location.assign('thankyou.html');
 }
 function loadList() {
     const items = JSON.parse(localStorage.getItem('shoppingList'));
@@ -67,9 +71,43 @@ function loadList() {
             const li = document.createElement('li');
             li.textContent = item;
             cList.appendChild(li);
+            
         });
+        alert("Saved list is loaded successfully!");
+    }else{
+        prompt("the list wasn't saved properly!")
     }
 }
+
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function emailList(event) {
+    event.preventDefault();
+    const email = emailInput.value;
+
+    if (!validateEmail(email)) {
+        emailError.textContent = "Please enter a valid email address.";
+        return;
+    }
+
+    emailError.textContent = "";
+
+    const items = [];
+    cList.querySelectorAll('li').forEach(item => {
+        items.push(item.textContent);
+    });
+    alert("Your List was sent to your mail");
+
+}
+
 cBtn.addEventListener("click", addComment);
 saveBtn.addEventListener("click", saveList);
 loadBtn.addEventListener("click", loadList);
+emailForm.addEventListener("submit", emailList);
+
+
+
