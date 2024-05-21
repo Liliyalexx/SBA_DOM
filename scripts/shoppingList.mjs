@@ -8,49 +8,33 @@ var menuLinks = [
   
     const mainEl = document.getElementsByTagName('main');
   console.log(mainEl[0])
-  
-  
-  mainEl[0].style.backgroundColor = 'var(--main-bg)';
-  
-  
-  mainEl[0].innerHTML = "<h1> Shopping List goes here:</h1>";
-  
-  
-  
-  mainEl[0].classList.add('flex-ctr');
+        mainEl[0].style.backgroundColor = 'var(--main-bg)';
+        mainEl[0].innerHTML = "<h1> Create Your Shopping list here:</h1>";
+        mainEl[0].classList.add('flex-ctr');
   
   
   const topMenuEl = document.getElementById('top-menu');
   console.log(topMenuEl);
-  
-  
-  topMenuEl.style.height = "100%";
-  
-  
-  topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
-  
-  
-  topMenuEl.classList.add('flex-around');
+        topMenuEl.style.height = "100%";
+        topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
+        topMenuEl.classList.add('flex-around');
   
   
   
-      menuLinks.forEach((link)=>{
-  
-     
-      let newLink = document.createElement('a');
-  
-      
-      newLink.setAttribute('href', link.href)
-  
-      
-      newLink.textContent = link.text
-      topMenuEl.appendChild(newLink)
+    menuLinks.forEach((link)=>{
+        let newLink = document.createElement('a');
+            newLink.setAttribute('href', link.href)
+            newLink.textContent = link.text
+            topMenuEl.appendChild(newLink)
   
   })
 
-  const cList = document.getElementById("commentList");
+const cList = document.getElementById("commentList");
 const cInput = document.getElementById("commentInput");
 const cBtn = document.getElementById("addCommentBtn");
+const saveBtn = document.getElementById("saveListBtn");
+const loadBtn = document.getElementById("loadListBtn");
+
 
 
 cList.addEventListener("click", (e) => {
@@ -61,13 +45,31 @@ cList.addEventListener("click", (e) => {
 
 function addComment() {
   const newComment = cInput.value;
-
-
   if (newComment === "") return;
-
   cList.appendChild(document.createElement("li")).textContent = newComment;
   cInput.value = "";
   cInput.focus();
 }
 
+function saveList(){
+    const items = [];
+    cList.querySelectorAll('li').forEach(item =>{
+        items.push(items.textContent);
+    });
+    localStorage.setItem('shoppingList', JSON.stringify(items));
+
+}
+function loadList() {
+    const items = JSON.parse(localStorage.getItem('shoppingList'));
+    if (items) {
+        cList.innerHTML = '';  // Clear current list
+        items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            cList.appendChild(li);
+        });
+    }
+}
 cBtn.addEventListener("click", addComment);
+saveBtn.addEventListener("click", saveList);
+loadBtn.addEventListener("click", loadList);

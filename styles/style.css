@@ -90,3 +90,7 @@ li {
 .strikethrough {
   text-decoration: line-through;
 }
+
+#addCommentBtn{
+  margin-top: 2em;
+}
