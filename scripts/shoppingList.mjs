@@ -109,5 +109,32 @@ saveBtn.addEventListener("click", saveList);
 loadBtn.addEventListener("click", loadList);
 emailForm.addEventListener("submit", emailList);
 
+document.addEventListener("DOMContentLoaded", function() {
+     // Select the element   
+    const backgroundDiv = document.getElementById('backgroundDiv');
+
+    // cBtn.addEventListener('click', function() {
+    //     const newComment = cInput.value;
+    //     if (newComment) {
+    //         const li = document.createElement('li');
+    //         li.textContent = newComment;
+    //         cList.appendChild(li);
+    //         cInput.value = '';
+    //     }
+    // });
+    // Set the background image
+    backgroundDiv.style.backgroundImage = "url('https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/shopping-list-img2_ver_1.png')";
+
+    // Additional styles for better presentation
+    //backgroundDiv.style.backgroundSize = 'cover'; // Cover the whole area
+    backgroundDiv.style.backgroundPosition = 'left'; // Center the image
+    //backgroundDiv.style.marginTop = '15em';
+    //backgroundDiv.style.marginBottom = '15em'
+    backgroundDiv.style.backgroundRepeat = 'no-repeat'; // Do not repeat the image
+    backgroundDiv.style.backgroundAttachment = 'fixed'; // The background is fixed in place
+   
+
+});
+
 
 
