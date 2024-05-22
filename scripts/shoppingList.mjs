@@ -25,9 +25,26 @@ var menuLinks = [
         let newLink = document.createElement('a');
             newLink.setAttribute('href', link.href)
             newLink.textContent = link.text
+            newLink.dataset.href = link.href;
+            newLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                loadContent(link.href);
+            });
             topMenuEl.appendChild(newLink)
   
   })
+
+  function loadContent(url) {
+    const iframe = document.getElementById('contentIframe');
+    iframe.src = url;
+    iframe.style.display = 'block';
+    iframe.style.alignContent = 'right'
+    // Additional centering styles
+    // cBtn.style.margin = '0 auto';
+    // cInput.style.margin = '0 auto';
+    // saveBtn.style.margin = '0 auto';
+    // loadBtn.style.margin = '0 auto';
+}
 
 const cList = document.getElementById("commentList");
 const cInput = document.getElementById("commentInput");
