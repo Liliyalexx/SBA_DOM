@@ -18,6 +18,7 @@ var menuLinks = [
         topMenuEl.style.height = "100%";
         topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
         topMenuEl.classList.add('flex-around');
+        topMenuEl.style.backgroundSize = "cover";
   
   
   
@@ -34,17 +35,7 @@ var menuLinks = [
   
   })
 
-  function loadContent(url) {
-    const iframe = document.getElementById('contentIframe');
-    iframe.src = url;
-    iframe.style.display = 'block';
-    iframe.style.alignContent = 'right'
-    // Additional centering styles
-    // cBtn.style.margin = '0 auto';
-    // cInput.style.margin = '0 auto';
-    // saveBtn.style.margin = '0 auto';
-    // loadBtn.style.margin = '0 auto';
-}
+  
 
 const cList = document.getElementById("commentList");
 const cInput = document.getElementById("commentInput");
@@ -140,10 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
     //     }
     // });
     // Set the background image
-    backgroundDiv.style.backgroundImage = "url('https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/shopping-list-img2_ver_1.png')";
+    backgroundDiv.style.backgroundImage = "url('https://homeandhallow.com/wp-content/uploads/2019/01/IMG_5643.jpg')";
 
     // Additional styles for better presentation
-    //backgroundDiv.style.backgroundSize = 'cover'; // Cover the whole area
+    backgroundDiv.style.backgroundSize = 'cover'; // Cover the whole area
     backgroundDiv.style.backgroundPosition = 'left'; // Center the image
     //backgroundDiv.style.marginTop = '15em';
     //backgroundDiv.style.marginBottom = '15em'
