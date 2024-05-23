@@ -35,7 +35,15 @@ var menuLinks = [
   
   })
 
-  
+  function loadContent(url) {
+    const iframe = document.getElementById('contentIframe');
+    iframe.src = "https://shelbyreport.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2020/08/Amazon-Fresh-Logo-768x707.jpg";
+    iframe.style.display = 'block';
+    iframe.style.alignContent = 'right';
+    iframe.style.size = '5em';
+    iframe.style.marginTop = "-20em";
+   
+}
 
 const cList = document.getElementById("commentList");
 const cInput = document.getElementById("commentInput");
